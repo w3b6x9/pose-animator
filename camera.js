@@ -110,7 +110,6 @@ const guiState = {
   avatarSVG: Object.keys(avatarSvgs)[0],
   debug: {
     showDetectionDebug: true,
-    showIllustrationDebug: false,
   },
 };
 
@@ -131,7 +130,6 @@ function setupGui(cameras) {
 
   let output = gui.addFolder('Debug control');
   output.add(guiState.debug, 'showDetectionDebug');
-  output.add(guiState.debug, 'showIllustrationDebug');
   output.open();
 }
 
@@ -206,10 +204,6 @@ function detectPoseInRealTime(video) {
         illustration.updateSkeleton(poses[0], null);
       }
       illustration.draw(canvasScope, videoWidth, videoHeight);
-
-      if (guiState.debug.showIllustrationDebug) {
-        illustration.debugDraw(canvasScope);
-      }
     }
 
     canvasScope.project.activeLayer.scale(
