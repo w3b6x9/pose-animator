@@ -136,14 +136,6 @@ function setupGui(cameras) {
 }
 
 /**
- * Sets up a frames per second panel on the top-left of the window
- */
-function setupFPS() {
-  stats.showPanel(0);  // 0: fps, 1: ms, 2: mb, 3+: custom
-  document.getElementById('main').appendChild(stats.dom);
-}
-
-/**
  * Feeds an image to posenet to estimate poses - this is where the magic
  * happens. This function loops with a requestAnimationFrame method.
  */
@@ -285,7 +277,6 @@ export async function bindPage() {
   }
 
   setupGui([], posenet);
-  setupFPS();
   
   toggleLoadingUI(false);
   detectPoseInRealTime(video, posenet);
